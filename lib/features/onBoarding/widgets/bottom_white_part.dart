@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/app_dom_colors/app_colors.dart';
+import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 
-class DownWhitePart extends StatelessWidget {
-  const DownWhitePart({super.key});
+class BottomWhitePart extends StatelessWidget {
+  const BottomWhitePart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,9 @@ class DownWhitePart extends StatelessWidget {
                 ],
               ),
               FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(AuthScreen.routeName, (route) => false);
+                  },
                   child: Text(
                     'Let\'s Continue',
                   )),

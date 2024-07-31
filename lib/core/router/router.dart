@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
+import 'package:wagba/features/auth/signup/presentation/pages/sign_up_screen.dart';
 import 'package:wagba/features/onBoarding/on_boarding.dart';
 import 'package:wagba/features/splash/splash_screen.dart';
 
@@ -10,6 +12,10 @@ final class MyRouter{
         return MaterialPageRoute(builder: (_)=>const SplashScreen());
       case OnBoardingScreen.routeName:
         return MaterialPageRoute(builder: (_)=>const OnBoardingScreen());
+      case AuthScreen.routeName:
+        return MaterialPageRoute(builder: (_)=>const AuthScreen());
+      case SignUpScreen.routeName:
+        return MaterialPageRoute(builder: (_)=>const SignUpScreen());
 
         //some route that has passed an arguments
     /*
