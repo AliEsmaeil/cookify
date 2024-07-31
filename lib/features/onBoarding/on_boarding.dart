@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wagba/core/app_dom_colors/app_colors.dart';
+import 'package:wagba/features/onBoarding/widgets/down_white_part.dart';
+import 'package:wagba/features/onBoarding/widgets/top_orange_part.dart';
 
 class OnBoardingScreen extends StatelessWidget {
 
@@ -9,9 +12,11 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text('Welcome Screen'),
+      body: Column(
+        children:[
+          TopOrangePart(),
+          DownWhitePart(),
+        ]
       ),
     );
   }

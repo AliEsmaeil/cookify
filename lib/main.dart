@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/router/router.dart';
+import 'package:wagba/core/theme/theme.dart';
 import 'firebase_options.dart';
 
 void main()async{
@@ -19,18 +20,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
-      designSize: Size(375, 812),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        themeAnimationDuration: const Duration(seconds: 2),
-        themeAnimationCurve: Curves.decelerate,
-        title: r'Wagba',
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/',
-        onGenerateRoute: MyRouter.onGenerateRoute,
-      ),
+      builder: (context, child){
+        return  MaterialApp(
+          themeAnimationDuration: const Duration(seconds: 2),
+          themeAnimationCurve: Curves.decelerate,
+          title: r'Wagba',
+          debugShowCheckedModeBanner: false,
+          initialRoute: '/',
+          onGenerateRoute: MyRouter.onGenerateRoute,
+          theme: AppTheme.lightTheme,
+        );
+      },
     );
   }
 }
