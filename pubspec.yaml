@@ -1,0 +1,79 @@
+name: wagba
+
+description: "Tracking New Meals in a Resturant and order a meal"
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+
+  #Firebase dependency
+  firebase_core: ^3.2.0
+  firebase_auth: ^5.1.2
+  firebase_storage: ^12.1.1
+  cloud_firestore: ^5.1.0
+  dio: ^5.5.0+1
+  build_runner: ^2.4.9
+  json_annotation: ^4.9.0
+  json_serializable: ^6.8.0
+  cached_network_image: ^3.3.1
+  flutter_screenutil: ^5.9.3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+
+  fonts:
+    - family: BadScript
+      fonts:
+        - asset: assets/fonts/BadScript.ttf
+
+    - family: Brandon
+      fonts:
+        - asset: assets/fonts/brandon/Brandon_regular.otf
+          weight: 400
+        - asset: assets/fonts/brandon/Brandon_italic.otf
+          style: italic
+        - asset: assets/fonts/brandon/Brandon_thin.otf
+          weight: 200
+        - asset: assets/fonts/brandon/Brandon_thin_italic.otf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/brandon/Brandon_regular_italic.otf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/brandon/Brandon.otf
+          weight: 700
+        - asset: assets/fonts/brandon/Brandon_bold.otf
+          weight : 900
+        - asset: assets/fonts/brandon/Brandon_light.otf
+          weight : 300
+        - asset: assets/fonts/brandon/Brandon_light_italic.otf
+          weight : 300
+          style: italic
+        - asset: assets/fonts/brandon/Brandon_medium.otf
+          weight: 500
+        - asset: assets/fonts/brandon/Brandon_medium_italic.otf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/brandon/Brandon_bold_italic.otf
+          weight: 600
+          style: italic
+
+
+  uses-material-design: true
+  assets:
+    - assets/images/
