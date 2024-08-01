@@ -14,37 +14,60 @@ class CustomTextField extends StatelessWidget {
   final TextInputType textInputType;
   final String hintText;
   final bool secureText;
+  final String? suffixIconPath;
+  final VoidCallback? onSuffixPressed;
 
   const CustomTextField(
       {super.key,
-        this.secureText = false,
-        required this.hintText,
-        this.validator,
-        required this.controller,
-        this.onSubmitted,
-        this.onChanged,
-        required this.inputAction,
-        this.capitalization = TextCapitalization.none,
-        required this.prefixIconPath,
-        required this.textInputType});
+      this.suffixIconPath,
+        this.onSuffixPressed,
+      this.secureText = false,
+      required this.hintText,
+      this.validator,
+      required this.controller,
+      this.onSubmitted,
+      this.onChanged,
+      required this.inputAction,
+      this.capitalization = TextCapitalization.none,
+      required this.prefixIconPath,
+      required this.textInputType});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       textCapitalization: capitalization,
+      onChanged: onChanged,
       onFieldSubmitted: onSubmitted,
+      controller: controller,
       textInputAction: inputAction,
       keyboardType: textInputType,
       obscureText: secureText,
       decoration: InputDecoration(
-        hintText: hintText,
-        prefixIcon: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 10.w),
-          child: SvgPicture.asset(prefixIconPath,colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),),
-        ),
-        prefixIconConstraints: BoxConstraints(
+          hintText: hintText,
+          prefixIcon: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: SvgPicture.asset(
+              prefixIconPath,
+              colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+            ),
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxWidth: 38.w,
+            maxHeight: 38.w,
+          ),
+          suffixIcon: (suffixIconPath == null)
+              ? null
+              : IconButton(
+            onPressed: onSuffixPressed,
+                icon: SvgPicture.asset(
+                    suffixIconPath!,
+                    colorFilter:
+                        const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                  ),
+              ),
+        suffixIconConstraints:  BoxConstraints(
           maxWidth: 38.w,
-          maxHeight: 38.h,
+          maxHeight: 38.w,
         ),
       ),
       style: AppTheme.textFieldTextStyle,

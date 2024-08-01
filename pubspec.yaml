@@ -20,6 +20,7 @@ dependencies:
   firebase_auth: ^5.1.2
   firebase_storage: ^12.1.1
   cloud_firestore: ^5.1.0
+
   dio: ^5.5.0+1
   build_runner: ^2.4.9
   json_annotation: ^4.9.0
@@ -27,13 +28,21 @@ dependencies:
   cached_network_image: ^3.3.1
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
+  dartz: ^0.10.1
+  google_sign_in: ^6.2.1
+  equatable: ^2.0.5
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  fluttertoast: ^8.2.6
+  flutter_facebook_auth: ^6.0.4
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
 

@@ -12,7 +12,12 @@
           "package_name": "com.example.wagba"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "766049360094-l4dge8hmkf6dkhaan3ascb2tqmdh194s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCrO7papytTS97WjRJiwxFVCNxTzOQ4ifQ"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766049360094-l4dge8hmkf6dkhaan3ascb2tqmdh194s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "766049360094-so1vmlku0r2s6otaon6g9850h0brojal.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wagba"
+              }
+            }
+          ]
         }
       }
     }

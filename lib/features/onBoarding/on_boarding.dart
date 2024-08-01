@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wagba/core/app_dom_colors/app_colors.dart';
+import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/features/onBoarding/widgets/bottom_white_part.dart';
 import 'package:wagba/features/onBoarding/widgets/top_orange_part.dart';
 

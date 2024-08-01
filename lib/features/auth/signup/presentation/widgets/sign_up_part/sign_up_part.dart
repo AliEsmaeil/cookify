@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wagba/core/app_dom_colors/app_colors.dart';
+import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/core/theme/theme.dart';
 import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 import 'package:wagba/reusable_widgets/auth_redirection.dart';
@@ -47,7 +48,9 @@ class SignUpPart extends StatelessWidget {
                 SizedBox(height: 20.h,),
 
                 FilledButton(
-                  onPressed: (){},
+                  onPressed: (){
+
+                  },
                   child: Text('Sign up'),
                 ),
 
