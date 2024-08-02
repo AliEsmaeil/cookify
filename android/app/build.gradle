@@ -69,6 +69,18 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-analytics'
+//    implementation 'com.google.firebase:firebase-analytics'
+//    implementation platform('com.google.firebase:firebase-bom:33.1.2')
+//    implementation libs.facebook.android.sdk
+
+    // chat gpt suggestions for implementation
     implementation platform('com.google.firebase:firebase-bom:33.1.2')
+
+    implementation 'com.google.firebase:firebase-analytics'
+
+    implementation 'com.facebook.android:facebook-android-sdk:12.3.0'
+
+    //added
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
 }

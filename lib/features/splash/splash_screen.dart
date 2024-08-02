@@ -20,11 +20,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // in this time you are supposed to get the data (use this time)
-    Timer(
-        const Duration(seconds: 5),
-        () => Navigator.of(context).pushNamedAndRemoveUntil(
-            OnBoardingScreen.routeName, (route) => false));
+    delayThenGo();
+  }
+  void delayThenGo()async{
+    await Future.delayed(const Duration(seconds: 5));
+    Navigator.of(context).pushNamedAndRemoveUntil(
+        OnBoardingScreen.routeName, (route) => false);
   }
 
   @override

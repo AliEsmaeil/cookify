@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -91,7 +92,7 @@ class AuthScreenLoginPart extends StatelessWidget {
                       onPressed: () {
                        validateAndCall(context: context);
                       },
-                      child: state is LoginScreenLoadingState ? CircularProgressIndicator():Text('Login'),
+                      child: Text('Login'),
                     ),
                     AuthRedirection(
                       redirectText: 'Don\'t Have an Account',
