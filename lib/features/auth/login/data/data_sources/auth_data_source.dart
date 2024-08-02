@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:wagba/core/failures/failures.dart';
+import 'package:wagba/core/failures/auth_failure.dart';
+import 'package:wagba/core/failures/base_failure.dart';
 import'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 

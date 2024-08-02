@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
-import 'package:wagba/core/failures/failures.dart';
+import 'package:wagba/core/failures/base_failure.dart';
 import 'package:wagba/core/utils/password_strength_assessment.dart';
 import 'package:wagba/features/auth/signup/data/data_sources/sign_up_data_source.dart';
 import 'package:wagba/features/auth/signup/data/repositories/sign_up_repo.dart';

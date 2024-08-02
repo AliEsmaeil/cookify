@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:wagba/core/failures/failures.dart';
+import 'package:wagba/core/failures/base_failure.dart';
 import 'dart:math';
 
 sealed class LoginScreenStates extends Equatable{
