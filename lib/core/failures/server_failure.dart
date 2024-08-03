@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:wagba/core/failures/base_failure.dart';
 
 class ServerFailure extends Failure{
@@ -10,5 +11,13 @@ class ServerFailure extends Failure{
 // this is again (first was the 20 ingredients rather than List<String>), bad practice
 final class MealSearchHasNoResultFailure extends Failure{
   MealSearchHasNoResultFailure(): super(message: "No Meals Matches This Search!");
+
+}
+
+final class CustomDioFailure extends Failure{
+
+  int? statusCode;
+  CustomDioFailure({required super.message, this.statusCode});
+
 
 }

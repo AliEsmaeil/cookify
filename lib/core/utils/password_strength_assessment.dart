@@ -14,10 +14,7 @@ class PasswordEvaluator{
     else if(!_isMix(password)){
       return 2;
     }
-    else{
       return 3;
-    }
-
   }
 
   static bool _isMix(String password){

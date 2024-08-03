@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:wagba/core/failures/base_failure.dart';
-import 'package:wagba/features/home/data/models/meal_in_category_model.dart';
-import 'package:wagba/features/home/data/models/meal_model.dart';
 import 'package:wagba/features/home/domain/entities/meal.dart';
 import 'package:wagba/features/home/domain/entities/meal_in_category_or_kitchen.dart';
 
 abstract class BaseMealSearchRepo{
+
+  const BaseMealSearchRepo();
 
   Future<Either<Failure, List<Meal>>> searchMealByName({required String mealName});
 

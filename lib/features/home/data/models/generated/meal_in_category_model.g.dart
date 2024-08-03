@@ -8,17 +8,15 @@ part of '../meal_in_category_model.dart';
 
 MealInCategoryModel _$MealInCategoryModelFromJson(Map<String, dynamic> json) =>
     MealInCategoryModel(
-      (json['idCategory'] as num).toInt(),
-      json['strCategory'] as String,
-      json['strCategoryThumb'] as String,
-      json['strCategoryDescription'] as String,
+      json['strMeal'] as String,
+      json['strMealThumb'] as String,
+      (json['idMeal'] as num).toInt(),
     );
 
 Map<String, dynamic> _$MealInCategoryModelToJson(
         MealInCategoryModel instance) =>
     <String, dynamic>{
-      'idCategory': instance.id,
-      'strCategory': instance.name,
-      'strCategoryThumb': instance.imageUrl,
-      'strCategoryDescription': instance.description,
+      'strMeal': instance.mealName,
+      'strMealThumb': instance.imageUrl,
+      'idMeal': instance.id,
     };
