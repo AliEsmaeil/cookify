@@ -6,7 +6,7 @@ import 'package:wagba/core/constants/app_assets.dart';
 import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 import 'package:wagba/features/auth/signup/presentation/manager/sign_up_cubit.dart';
-import 'package:wagba/features/home/presentation/pages/home_screen.dart';
+import 'package:wagba/features/home/home_presentation/pages/home_screen.dart';
 import 'package:wagba/reusable_widgets/auth_redirection.dart';
 import 'package:wagba/reusable_widgets/custom_text_field.dart';
 import 'package:wagba/reusable_widgets/custom_toast.dart';

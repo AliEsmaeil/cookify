@@ -16,10 +16,17 @@ class CustomTextField extends StatelessWidget {
   final bool secureText;
   final String? suffixIconPath;
   final VoidCallback? onSuffixPressed;
+  // to reuse this text field for search in home screen
+  final VoidCallback? onTap;
+  final Color? fillColor;
+  final TextStyle? hintTextStyle;
 
   const CustomTextField(
       {super.key,
       this.suffixIconPath,
+        this.onTap,
+        this.fillColor,
+        this.hintTextStyle,
         this.onSuffixPressed,
       this.secureText = false,
       required this.hintText,
@@ -37,6 +44,7 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       textCapitalization: capitalization,
       onChanged: onChanged,
+      onTap: onTap,
       onFieldSubmitted: onSubmitted,
       controller: controller,
       textInputAction: inputAction,
@@ -44,12 +52,15 @@ class CustomTextField extends StatelessWidget {
       obscureText: secureText,
       decoration: InputDecoration(
           hintText: hintText,
+          hintStyle: hintTextStyle,
+          fillColor: fillColor,
           prefixIcon: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: SvgPicture.asset(
+            child: prefixIconPath.contains('.svg')? SvgPicture.asset(
               prefixIconPath,
               colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-            ),
+            ):
+                Image.asset(prefixIconPath),
           ),
           prefixIconConstraints: BoxConstraints(
             maxWidth: 38.w,

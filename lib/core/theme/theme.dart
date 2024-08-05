@@ -102,6 +102,36 @@ final class AppTheme{
       ),
     ),
 
+    tabBarTheme: TabBarTheme(
+      overlayColor: MaterialStatePropertyAll(AppColors.orangeColor.withOpacity(.2)),
+      tabAlignment: TabAlignment.start,
+      indicatorSize: TabBarIndicatorSize.label,
+      indicator:UnderlineTabIndicator(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(width: 5.r , color: AppColors.orangeColor),
+        insets: EdgeInsets.only(right: 65.r),
+      ),
+      unselectedLabelColor: Colors.grey,
+      labelColor: Colors.black,
+      dividerColor: Colors.transparent,
+      dividerHeight: 0,
+      indicatorColor: AppColors.orangeColor,
+      labelPadding: EdgeInsets.only(left: 0, right: 25.r),
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 20,
+        fontFamily: 'Brandon',
+        color: Colors.black,
+        overflow: TextOverflow.fade,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 16,
+        fontFamily: 'Brandon',
+        fontWeight: FontWeight.w400,
+        color: Colors.grey,
+      ),
+    )
+
 
   );
 }
