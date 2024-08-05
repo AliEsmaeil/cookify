@@ -18,7 +18,7 @@ class MealCategoryListWidget extends StatelessWidget {
         builder: (context,state){
           if (state is MealCategoryListLoadedState){
             return SizedBox(
-              height: context.height/1.2,
+              height: context.height/2.5,
               child: ListView.separated(
                 itemBuilder: (context,index){
                   return MealCategoryItem(category: state.categoryList[index]);
