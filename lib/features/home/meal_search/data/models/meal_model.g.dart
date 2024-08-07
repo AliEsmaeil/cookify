@@ -7,13 +7,14 @@ part of 'meal_model.dart';
 // **************************************************************************
 
 MealModel _$MealModelFromJson(Map<String, dynamic> json) => MealModel(
-      (json['idMeal'] as num).toInt(),
+      json['idMeal'] as String,
       json['strMeal'] as String,
       json['strCategory'] as String,
       json['strArea'] as String,
       json['strInstructions'] as String,
       json['strMealThumb'] as String,
-      json['strYouTube'] as String,
+      json['strYouTube'] as String? ??
+          'https://www.youtube.com/watch?v=4aZr5hZXP_s',
       json['strIngredient1'] as String?,
       json['strIngredient2'] as String?,
       json['strIngredient3'] as String?,

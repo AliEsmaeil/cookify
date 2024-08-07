@@ -6,6 +6,8 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Wagba</string>
+	<key>io.flutter.embedded_views_preview</key>
+    <string>Want to show a short video as a preview for the user to get more details about the meal he is gonna buy</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

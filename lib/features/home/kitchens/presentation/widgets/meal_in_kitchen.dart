@@ -1,8 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/core/extensions/context_extension.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
+import 'package:wagba/features/meal_details/pages/meal_details.dart';
 import 'package:wagba/reusable_widgets/networkImage.dart';
 
 class MealInKitchenOrCategory extends StatelessWidget {
@@ -13,6 +16,7 @@ class MealInKitchenOrCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     int id = int.parse(meal.id ?? '50');
     return Card(
       elevation: 5,
@@ -27,11 +31,19 @@ class MealInKitchenOrCategory extends StatelessWidget {
         child: Column(
           children: [
 
-            ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(16.w)),
-              child: CustomCachedNetworkImage(
-                imgUrl: meal.imageUrl,
-                fit: BoxFit.cover,
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).pushNamed(MealDetailsScreen.routeName, arguments: meal);
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16.w)),
+                child: Hero(
+                  tag: meal.id.toString(),
+                  child: CustomCachedNetworkImage(
+                    imgUrl: meal.imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             5.verticalSpace,

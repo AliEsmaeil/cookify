@@ -9,7 +9,7 @@ class LoadingMealCategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.height/1.2,
+      height: context.height/2.5,
       child: ListView.separated(
         itemCount: 14,
         scrollDirection: Axis.horizontal,

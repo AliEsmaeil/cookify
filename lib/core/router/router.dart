@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 import 'package:wagba/features/auth/signup/presentation/pages/sign_up_screen.dart';
 import 'package:wagba/features/home/home_presentation/pages/home_screen.dart';
+import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
+import 'package:wagba/features/meal_details/pages/meal_details.dart';
 import 'package:wagba/features/onBoarding/on_boarding.dart';
 import 'package:wagba/features/splash/splash_screen.dart';
 
@@ -20,6 +22,8 @@ final class MyRouter{
         return MaterialPageRoute(builder: (_)=>const SignUpScreen());
       case HomeScreen.routeName:
           return MaterialPageRoute(builder: (_)=>  const HomeScreen());
+      case MealDetailsScreen.routeName:
+        return MaterialPageRoute(builder: (_)=>MealDetailsScreen(meal: settings.arguments as MealInCategory));
 
 
         //some route that has passed an arguments

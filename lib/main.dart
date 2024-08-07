@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/router/router.dart';
 import 'package:wagba/core/theme/theme.dart';
 import 'package:wagba/core/utils/bloc_observer.dart';
 import 'package:wagba/features/home/home_presentation/pages/home_screen.dart';
-import 'package:wagba/features/splash/splash_screen.dart';
+
 import 'firebase_options.dart';
 
 void main()async{
@@ -18,6 +18,7 @@ void main()async{
   );
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {

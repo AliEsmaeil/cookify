@@ -35,6 +35,8 @@ dependencies:
   flutter_facebook_auth: ^6.0.4
   envied: ^0.5.4+1
   envied_generator: ^0.5.4+1
+  curved_navigation_bar: ^1.0.6
+  youtube_player_flutter: ^9.0.2
 
 
 

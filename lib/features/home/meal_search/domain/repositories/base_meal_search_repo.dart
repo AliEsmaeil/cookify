@@ -11,7 +11,7 @@ abstract class BaseMealSearchRepo{
 
   Future<Either<Failure, List<MealInCategory>>> searchMealContainingIngredient({required String ingredient});
 
-  Future<Either<Failure, Meal>> searchMealById({required int mealId});
+  Future<Either<Failure, Meal>> searchMealById({required String mealId});
 
   Future<Either<Failure, Meal>> getRandomMeal();
 

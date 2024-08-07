@@ -17,7 +17,7 @@ final class MealSearchRepo extends BaseMealSearchRepo{
   }
 
   @override
-  Future<Either<Failure, Meal>> searchMealById({required int mealId})async{
+  Future<Either<Failure, Meal>> searchMealById({required String mealId})async{
     return await _dataSource.searchMealById(mealId: mealId);
   }
 

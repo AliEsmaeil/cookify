@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 abstract class Meal {
 
   @JsonKey(name: 'idMeal')
-  final int id;
+  final String id;
 
   @JsonKey(name: 'strMeal')
   final String name;
@@ -20,7 +20,7 @@ abstract class Meal {
   @JsonKey(name: 'strMealThumb')
   final String imageUrl;
 
-  @JsonKey(name: 'strYouTube')
+  @JsonKey(name: 'strYouTube', defaultValue: "https://www.youtube.com/watch?v=4aZr5hZXP_s")
   final String youTubeVideoUrl;
 
 /*

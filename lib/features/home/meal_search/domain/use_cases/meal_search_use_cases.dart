@@ -19,7 +19,7 @@ final class MealSearchUseCases{
     return await _repo.searchMealContainingIngredient(ingredient: ingredient);
   }
 
-  Future<Either<Failure, Meal>> searchMealById({required int mealId})async{
+  Future<Either<Failure, Meal>> searchMealById({required String mealId})async{
     return await _repo.searchMealById(mealId: mealId);
   }
 

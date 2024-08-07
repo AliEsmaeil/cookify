@@ -13,7 +13,7 @@ abstract class BaseMealSearchDataSource{
 
   Future<Either<Failure, List<MealInCategory>>> searchMealContainingIngredient({required String ingredient});
 
-  Future<Either<Failure, Meal>> searchMealById({required int mealId});
+  Future<Either<Failure, Meal>> searchMealById({required String mealId});
 
   Future<Either<Failure, Meal>> getRandomMeal();
 
@@ -35,7 +35,7 @@ final class MealSearchDataSource extends BaseMealSearchDataSource{
   }
 
   @override
-  Future<Either<Failure, Meal>> searchMealById({required int mealId})async{
+  Future<Either<Failure, Meal>> searchMealById({required String mealId})async{
     try{
       var data = await GeneralDataGetter.getDataFromServer(endPoint: ApiConstants.searchById , queryParams: {'i' : mealId});
       return Right(data['meals'].map((meal)=>MealModel.fromJson(meal)).toList().first);

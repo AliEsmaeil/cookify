@@ -130,8 +130,30 @@ final class AppTheme{
         fontWeight: FontWeight.w400,
         color: Colors.grey,
       ),
-    )
+    ),
 
+    // may not be used, because curved Nav Bar is used
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColors.whiteColor,
+       selectedIconTheme: IconThemeData(
+         color: Colors.deepOrange,
+       ),
+
+      elevation: 2,
+      selectedItemColor: AppColors.orangeColor,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+    ),
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.orangeColor,
+      surfaceTintColor:  AppColors.orangeColor,
+      foregroundColor: AppColors.whiteColor,
+      ),
+    dividerTheme: DividerThemeData(
+      color: Colors.grey.shade200,
+      thickness: 2,
+    )
 
   );
 }
