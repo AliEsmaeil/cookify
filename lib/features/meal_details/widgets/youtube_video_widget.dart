@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:wagba/core/constants/app_colors.dart';
+import 'package:wagba/core/extensions/context_extension.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YouTubeVideoWidget extends StatefulWidget {
@@ -23,9 +25,11 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
     controller = YoutubePlayerController(
       initialVideoId: videoId,
       flags: YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         hideThumbnail: true,
-        //startAt: 5,
+        loop: false,
+
+
       )
     );
     
@@ -37,6 +41,8 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
       progressColors: ProgressBarColors(
         backgroundColor: Colors.grey.shade300,
         playedColor: Colors.orange,
+        bufferedColor: Colors.grey.shade300,
+        handleColor: Colors.orange,
       ),
       progressIndicatorColor: Colors.orange,
       onReady: (){},

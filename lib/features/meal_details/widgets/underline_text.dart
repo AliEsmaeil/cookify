@@ -8,16 +8,34 @@ class UnderlineText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8.r),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.bodyLarge,
-      ),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 4.r, color: AppColors.orangeColor)),
-        borderRadius: BorderRadius.circular(5.r),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            decorationThickness: 3.h,
+            decorationStyle: TextDecorationStyle.wavy,
+            decorationColor: AppColors.orangeColor,
+            decoration: TextDecoration.underline,
+            color: Colors.transparent,
+            shadows: [
+              Shadow(
+                offset: Offset(0,-7),
+              ),
+            ]
+          ),
+        ),
+        5.verticalSpace,
+
+        // Container(
+        //   height: 5.h,
+        //   decoration: BoxDecoration(
+        //     color: AppColors.orangeColor,
+        //     borderRadius: BorderRadius.circular(5.r),
+        //   ),
+        // )
+      ],
     );
   }
 }
