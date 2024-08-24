@@ -145,15 +145,16 @@ final class AppTheme{
       showUnselectedLabels: false,
     ),
 
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.orangeColor,
-      surfaceTintColor:  AppColors.orangeColor,
-      foregroundColor: AppColors.whiteColor,
-      ),
+    // appBarTheme: AppBarTheme(
+    //   backgroundColor: AppColors.orangeColor,
+    //   surfaceTintColor:  AppColors.orangeColor,
+    //   foregroundColor: AppColors.whiteColor,
+    //   ),
     dividerTheme: DividerThemeData(
       color: Colors.grey.shade200,
       thickness: 2,
-    )
+    ),
+
 
   );
 }

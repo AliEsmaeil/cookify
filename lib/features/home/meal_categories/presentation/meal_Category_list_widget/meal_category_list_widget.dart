@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/extensions/context_extension.dart';
-import 'package:wagba/features/home/meal_categories/presentation/manager/meal_category_list_cubit.dart';
+import 'package:wagba/features/home/meal_categories/presentation/manager/category_list_cubit/meal_category_list_cubit.dart';
 import 'package:wagba/features/home/meal_categories/presentation/widgets/loading_category_list.dart';
 import 'package:wagba/features/home/meal_categories/presentation/widgets/meal_category_item.dart';
-import 'package:wagba/reusable_widgets/loading_container.dart';
 
 class MealCategoryListWidget extends StatelessWidget {
   const MealCategoryListWidget({super.key});
