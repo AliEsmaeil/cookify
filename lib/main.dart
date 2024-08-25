@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/router/router.dart';
 import 'package:wagba/core/theme/theme.dart';
 import 'package:wagba/core/utils/bloc_observer.dart';
+import 'package:wagba/features/favorites/utils/local_favs_manager.dart';
 import 'package:wagba/features/home/home_presentation/pages/home_screen.dart';
 
 import 'firebase_options.dart';
@@ -16,6 +17,9 @@ void main()async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  LocalFavoritesManager.getInstance().initializeLocalFavorites();
+
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 

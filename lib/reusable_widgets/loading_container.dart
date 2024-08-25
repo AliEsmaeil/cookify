@@ -14,7 +14,7 @@ class LoadingContainer extends StatefulWidget {
 }
 
 class _LoadingContainerState extends State<LoadingContainer> {
-  double opacity = 0.25;
+  double opacity = 0.35;
 
   @override
   void initState(){
@@ -22,11 +22,17 @@ class _LoadingContainerState extends State<LoadingContainer> {
     Timer.periodic(const Duration(seconds: 1), (timer) {
       if(mounted){
         setState(() {
-          opacity = opacity == 0.25 ? 1 : 0.25;
+          opacity = opacity == 0.35 ? 1 : 0.35;
         });
       }
     });
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacity(
