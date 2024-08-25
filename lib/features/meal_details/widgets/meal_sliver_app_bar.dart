@@ -35,10 +35,10 @@ class MealSliverAppBar extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        title: TypeWriterEffectText(
-          text: meal.mealName ?? 'Forget to name',
+        title: Text(
+          meal.mealName ?? 'Forget to name',
           softWrap: false,
-          overflowClipBehaviour: TextOverflow.clip,
+          overflow: TextOverflow.clip,
         ),
         expandedTitleScale: 2,
         stretchModes: [

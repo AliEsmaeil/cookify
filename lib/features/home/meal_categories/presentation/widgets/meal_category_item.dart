@@ -20,14 +20,6 @@ class MealCategoryItem extends StatelessWidget {
       child: Container(
         width: (context.width/2) -18 .w,
         child: Card(
-          elevation: 10,
-          shadowColor: Colors.black38,
-          color: AppColors.whiteColor,
-          surfaceTintColor: AppColors.whiteColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.w),
-            side: BorderSide(color: Colors.grey.shade200, width: 1),
-          ),
           child: Padding(
             padding:  EdgeInsets.all(12.r),
             child: Column(

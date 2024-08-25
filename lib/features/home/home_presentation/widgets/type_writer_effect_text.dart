@@ -30,7 +30,7 @@ class _TypeWriterEffectTextState extends State<TypeWriterEffectText> {
     super.initState();
 
     Timer.periodic(Duration(milliseconds: 100), (timer) {
-      if(trackedCharIndex < widget.text.length){
+      if(trackedCharIndex < widget.text.length && mounted){
         setState(() {
           accumulatorText.write(widget.text[trackedCharIndex++]);
         });

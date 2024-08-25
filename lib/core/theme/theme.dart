@@ -154,6 +154,16 @@ final class AppTheme{
       color: Colors.grey.shade200,
       thickness: 2,
     ),
+    cardTheme: CardTheme(
+      elevation: 10,
+      shadowColor: Colors.black38,
+      color: AppColors.whiteColor,
+      surfaceTintColor: AppColors.whiteColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.w),
+        side: BorderSide(color: Colors.grey.shade200, width: 1),
+      ),
+    )
 
 
   );

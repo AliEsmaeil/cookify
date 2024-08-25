@@ -22,19 +22,26 @@ class MealsInCategoryScreen extends StatelessWidget {
         slivers: [
           MealSliverAppBar(meal: MealInCategoryModel('${category.name} Category', category.imageUrl, category.id)),
           SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(12.r),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  UnderlineText(title: 'Category Meals'),
-                  MealsInCategoryCarousel(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                Padding(
+                  padding: EdgeInsets.all(12.r),
+                  child: UnderlineText(title: 'Category Meals'),
+                ),
+                MealsInCategoryCarousel(category: category,),
+
+                Padding(padding: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                   UnderlineText(title: 'Category Description'),
                   Text(
                     category.description,
                   ),
-                ],
-              ),
+                ],),)
+              ],
             ),
           )
         ],
