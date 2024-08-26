@@ -16,7 +16,7 @@ class BottomNavBar extends StatelessWidget {
       onTap: onTap,
       color: AppColors.orangeColor,
       height: 70.h,
-      backgroundColor: Colors.transparent,
+      backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       buttonBackgroundColor: Colors.orange,
       animationCurve: Curves.decelerate,
       index: chosenIndex,

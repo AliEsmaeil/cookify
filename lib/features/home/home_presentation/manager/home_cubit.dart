@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:wagba/features/favorites/presentation/pages/favorites_tab.dart';
 import 'package:wagba/features/home/home_presentation/pages/tabs/basket_tab.dart';
-import 'package:wagba/features/home/home_presentation/pages/tabs/favorites_tab.dart';
 import 'package:wagba/features/home/home_presentation/pages/tabs/home_tab.dart';
 import 'package:wagba/features/home/home_presentation/pages/tabs/settings_teb.dart';
 

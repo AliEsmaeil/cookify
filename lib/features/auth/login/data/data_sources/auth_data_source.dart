@@ -48,6 +48,7 @@ class AuthDataSource extends BaseAuthDataSource{
       // Trigger the authentication :flow
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
+
       if(googleUser == null){
         return Left(UncompletedAuthFailure());
       }
@@ -78,11 +79,26 @@ class AuthDataSource extends BaseAuthDataSource{
     try{
       final LoginResult loginResult = await FacebookAuth.instance.login();
 
-      // Create a credential from the access token
-      final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
 
-      // Once signed in, return the UserCredential
-      return Right(await _instance.signInWithCredential(facebookAuthCredential));
+      if (loginResult.status == LoginStatus.success) {
+
+        final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+        // Once signed in, return the UserCredential
+        return Right(await _instance.signInWithCredential(facebookAuthCredential));
+      }
+      else if (loginResult.status == LoginStatus.cancelled) {
+
+        print("Login canceled by user.");
+        return Left(UncompletedAuthFailure());
+      }
+      else {
+        print("Login failed: ${loginResult.message}");
+        return Left(AuthFailure(authException: FirebaseAuthException(
+          code: 'failed',
+          message: loginResult.message,
+        )));
+      }
+
     }
     on FirebaseAuthException catch(e){
       print(e.code);

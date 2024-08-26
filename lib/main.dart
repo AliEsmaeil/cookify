@@ -18,7 +18,10 @@ void main()async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  LocalFavoritesManager.getInstance().initializeLocalFavorites();
+  var manager = LocalFavoritesManager.getInstance();
+  await manager.initializeLocalFavorites();
+  print('fav meals ${manager.favMealIds}');
+
 
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());

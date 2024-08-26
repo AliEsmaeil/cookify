@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wagba/core/theme/theme.dart';
 
 class CustomTextField extends StatelessWidget {
+  final bool isForTabs;
   final TextEditingController controller;
   final void Function(String?)? onSubmitted;
   final void Function(String?)? onChanged;
@@ -23,6 +24,7 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField(
       {super.key,
+        this.isForTabs = false,
       this.suffixIconPath,
         this.onTap,
         this.fillColor,
@@ -66,6 +68,7 @@ class CustomTextField extends StatelessWidget {
             maxWidth: 38.w,
             maxHeight: 38.w,
           ),
+
           suffixIcon: (suffixIconPath == null)
               ? null
               : IconButton(
@@ -80,7 +83,19 @@ class CustomTextField extends StatelessWidget {
           maxWidth: 38.w,
           maxHeight: 38.w,
         ),
-      ),
+
+          // TODO: CHANGE ENABLED AND DISABLED BORDERS FOR TABS TO DEAL WITH THEME
+          enabledBorder: isForTabs ? OutlineInputBorder(
+    borderRadius: BorderRadius.circular(25.r),
+    borderSide: BorderSide(color: Color(0xFFF3F1F1), width: 1),
+    ): Theme.of(context).inputDecorationTheme.enabledBorder,
+
+        focusedBorder: isForTabs ? OutlineInputBorder(
+      borderRadius: BorderRadius.circular(25.r),
+      borderSide: BorderSide(color: Color(0xFFF3F1F1), width: 1),
+    ): Theme.of(context).inputDecorationTheme.enabledBorder,
+
+    ),
       style: AppTheme.textFieldTextStyle,
       validator: validator,
     );

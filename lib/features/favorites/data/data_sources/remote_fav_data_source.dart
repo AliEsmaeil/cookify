@@ -55,7 +55,7 @@ class FavoritesDataSource extends BaseFavoritesDataSource{
 
    try{
      await db.collection(FireStoreConstants.favorites).doc(mealId).delete();
-     return Right(true);
+     return const Right(true);
    }
    on FirebaseException catch (failure){
      return Left(FireStoreFailure(message: failure.message?? failure.code));

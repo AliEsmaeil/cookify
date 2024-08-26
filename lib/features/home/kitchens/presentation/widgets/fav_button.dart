@@ -39,6 +39,7 @@ class _FavoriteHeartButtonState extends State<FavoriteHeartButton>
         buildWhen: (previous,
             current) => current is FavoritesListChangedLocally,
         builder: (BuildContext context, FavoritesStates state) {
+
           var cubit = FavoritesCubit.getCubit(context: context);
           bool isFav = cubit.isInFavorites(mealId: widget.meal.id ?? '50');
 
