@@ -11,18 +11,25 @@ import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_cate
 part 'favorites_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesStates> {
-  late final FavoritesUseCase favoritesUseCase;
-  final localFavoritesManager = LocalFavoritesManager.getInstance();
+  final bool _getFavoritesOnStart;
+  late final FavoritesUseCase _favoritesUseCase;
+  final _localFavoritesManager = LocalFavoritesManager.getInstance();
+  static List<MealInCategory> localFavorites = [];
 
-  static FavoritesCubit getCubit({required BuildContext context})=>BlocProvider.of(context);
+  static FavoritesCubit getCubit({required BuildContext context}) =>
+      BlocProvider.of(context);
 
-  FavoritesCubit() : super(FavoritesInitial()) {
-    favoritesUseCase = FavoritesUseCase(
+  FavoritesCubit([this._getFavoritesOnStart = false])
+      : super(FavoritesInitial()) {
+    _favoritesUseCase = FavoritesUseCase(
         repo: FavoritesRepo(dataSource: FavoritesDataSource()));
+    if (_getFavoritesOnStart) {
+      getAllFavorites();
+    }
   }
 
   void toggleFavorite({required MealInCategory meal}) {
-    if (localFavoritesManager.favMealIds.contains(meal.id)) {
+    if (_localFavoritesManager.favMealIds.contains(meal.id)) {
       removeFavorite(mealId: meal.id ?? '50');
     } else {
       addFavorite(meal: meal);
@@ -30,22 +37,26 @@ class FavoritesCubit extends Cubit<FavoritesStates> {
   }
 
   void addFavorite({required MealInCategory meal}) async {
-    localFavoritesManager.favMealIds.add(meal.id ?? '50');
+    _localFavoritesManager.favMealIds.add(meal.id ?? '50');
+    localFavorites.add(meal);
 
     emit(FavoritesListChangedLocally());
+    getAllFavorites();
 
-    var result = await favoritesUseCase.addFavorite(meal: meal);
+    var result = await _favoritesUseCase.addFavorite(meal: meal);
 
     result.fold((failure) => emit(FavoritesFailureState(failure: failure)),
         (isAdded) => emit(FavoritesAddedState(successfulAdd: isAdded)));
   }
 
   void removeFavorite({required String mealId}) async {
-    localFavoritesManager.favMealIds.remove(mealId);
+    _localFavoritesManager.favMealIds.remove(mealId);
+    localFavorites.removeWhere((meal) => meal.id == mealId);
 
     emit(FavoritesListChangedLocally());
+    getAllFavorites();
 
-    var result = await favoritesUseCase.removeFavorite(mealId: mealId);
+    var result = await _favoritesUseCase.removeFavorite(mealId: mealId);
 
     result.fold(
         (failure) => emit(FavoritesFailureState(failure: failure)),
@@ -56,12 +67,16 @@ class FavoritesCubit extends Cubit<FavoritesStates> {
   void getAllFavorites() async {
     emit(FavoritesLoadingState());
 
-    var result = await favoritesUseCase.getAllFavorites();
+    if (localFavorites.isEmpty) {
+      var result = await _favoritesUseCase.getAllFavorites();
 
-    result.fold((failure) => emit(FavoritesFailureState(failure: failure)),
-        (meals) => emit(FavoritesLoadedState(meals: meals)));
+      result.fold((failure) => emit(FavoritesFailureState(failure: failure)),
+          (meals) => localFavorites = meals,
+      );
+    }
+    emit(FavoritesLoadedState(meals: localFavorites));
   }
 
-  bool isInFavorites({required String mealId})=>localFavoritesManager.favMealIds.contains(mealId);
-
+  bool isInFavorites({required String mealId}) =>
+      _localFavoritesManager.favMealIds.contains(mealId);
 }

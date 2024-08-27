@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wagba/core/constants/app_colors.dart';
+import 'package:wagba/features/home/home_presentation/pages/home_screen.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
 import 'package:wagba/features/meal_details/manager/meal_details_cubit.dart';
 import 'package:wagba/features/meal_details/widgets/drop_in_basket_row.dart';
@@ -9,6 +11,7 @@ import 'package:wagba/features/meal_details/widgets/meal_sliver_app_bar.dart';
 import 'package:wagba/features/meal_details/widgets/no_meals_row.dart';
 import 'package:wagba/features/meal_details/widgets/underline_text.dart';
 import 'package:wagba/features/meal_details/widgets/youtube_video_widget.dart';
+import 'package:wagba/reusable_widgets/custom_toast.dart';
 
 class MealDetailsScreen extends StatelessWidget {
 
@@ -64,8 +67,9 @@ class MealDetailsScreen extends StatelessWidget {
                         );
                       }
                       else if(state is MealDetailsFailureState){
-                        // TODO: Handle failure and direct user back to home
-                        return Text(state.failure.message);
+                        showToast(message: state.failure.message, color: AppColors.toastFailureColor);
+                        Future.delayed(Duration(seconds: 2) , ()=>Navigator.of(context).pushReplacementNamed(HomeScreen.routeName));
+
                       }
 
                       return LoadingMealDetails();

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 import 'package:wagba/features/auth/signup/presentation/pages/sign_up_screen.dart';

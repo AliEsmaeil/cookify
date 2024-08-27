@@ -54,8 +54,9 @@ class _HomeSliverAppBarState extends State<HomeSliverAppBar> {
       expandedHeight: showSearchBySegment ? context.height /3 :  220.h,
       flexibleSpace: FlexibleSpaceBar(
         //expandedTitleScale: 1,
+
         background: Padding(
-          padding: EdgeInsets.only(left: 12.w, top: 12.h),
+          padding: EdgeInsets.only(left: 12.w, top: 12.h, bottom : 45.h),
           child: Align(
             alignment: Alignment.centerLeft,
               child: TypeWriterEffectText(

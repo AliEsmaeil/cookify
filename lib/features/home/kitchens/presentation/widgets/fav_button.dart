@@ -33,33 +33,31 @@ class _FavoriteHeartButtonState extends State<FavoriteHeartButton>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FavoritesCubit(),
-      child: BlocBuilder<FavoritesCubit, FavoritesStates>(
-        buildWhen: (previous,
-            current) => current is FavoritesListChangedLocally,
-        builder: (BuildContext context, FavoritesStates state) {
 
-          var cubit = FavoritesCubit.getCubit(context: context);
-          bool isFav = cubit.isInFavorites(mealId: widget.meal.id ?? '50');
+    return BlocBuilder<FavoritesCubit, FavoritesStates>(
+      buildWhen: (previous,
+          current) => current is FavoritesListChangedLocally,
+      builder: (BuildContext context, FavoritesStates state) {
 
-          return ScaleTransition(
-            scale: Tween<double>(begin: 0.7, end: 1).animate(
-                CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
-            child: IconButton(
-              icon: Icon(
-                isFav ? Icons.favorite : Icons.favorite_border,
-                color: isFav ? AppColors.favColor : AppColors.notFavColor,
-              ),
-              onPressed: () {
-                _controller.reverse().then((value) => _controller.forward());
-                Timer(const Duration(milliseconds: 400), () =>
-                    cubit.toggleFavorite(meal: widget.meal));
-              },
+        var cubit = FavoritesCubit.getCubit(context: context);
+        bool isFav = cubit.isInFavorites(mealId: widget.meal.id ?? '50');
+
+        return ScaleTransition(
+          scale: Tween<double>(begin: 0.7, end: 1).animate(
+              CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+          child: IconButton(
+            icon: Icon(
+              isFav ? Icons.favorite : Icons.favorite_border,
+              color: isFav ? AppColors.favColor : AppColors.notFavColor,
             ),
-          );
-        },
-      ),
+            onPressed: () {
+              _controller.reverse().then((value) => _controller.forward());
+              Timer(const Duration(milliseconds: 400), () =>
+                  cubit.toggleFavorite(meal: widget.meal));
+            },
+          ),
+        );
+      },
     );
   }
 }

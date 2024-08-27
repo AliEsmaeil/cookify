@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wagba/features/favorites/presentation/manager/favorites_cubit.dart';
 import 'package:wagba/features/home/home_presentation/manager/home_cubit.dart';
 import 'package:wagba/features/home/home_presentation/widgets/bottom_nav_bar.dart';
 
@@ -14,8 +15,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomeCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FavoritesCubit(),
+        ),
+      ],
+
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (context, state) {
 
@@ -24,10 +33,10 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = HomeCubit.getCubit(context);
           return Scaffold(
-            body: cubit.tab,
+            body: SafeArea(child: cubit.tab),
             bottomNavigationBar: BottomNavBar(
               chosenIndex: cubit.tabIndex,
-              onTap: (index)=>cubit.changeTab(index),
+              onTap: (index) => cubit.changeTab(index),
             ),
           );
         },
