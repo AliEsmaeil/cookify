@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:wagba/features/home/meal_categories/data/models/meal_in_category_model.dart';
 
-abstract class MealInCategory{
+abstract class MealInCategory extends Equatable{
 
   @JsonKey(name: 'strMeal')
   final String? mealName;

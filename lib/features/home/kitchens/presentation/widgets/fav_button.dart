@@ -35,8 +35,7 @@ class _FavoriteHeartButtonState extends State<FavoriteHeartButton>
   Widget build(BuildContext context) {
 
     return BlocBuilder<FavoritesCubit, FavoritesStates>(
-      buildWhen: (previous,
-          current) => current is FavoritesListChangedLocally,
+
       builder: (BuildContext context, FavoritesStates state) {
 
         var cubit = FavoritesCubit.getCubit(context: context);
@@ -46,6 +45,8 @@ class _FavoriteHeartButtonState extends State<FavoriteHeartButton>
           scale: Tween<double>(begin: 0.7, end: 1).animate(
               CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
           child: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             icon: Icon(
               isFav ? Icons.favorite : Icons.favorite_border,
               color: isFav ? AppColors.favColor : AppColors.notFavColor,

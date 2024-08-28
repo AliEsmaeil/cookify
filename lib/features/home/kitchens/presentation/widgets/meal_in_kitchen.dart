@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/core/extensions/context_extension.dart';
+import 'package:wagba/features/home/kitchens/presentation/widgets/add_basket_button.dart';
 import 'package:wagba/features/home/kitchens/presentation/widgets/fav_button.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
 import 'package:wagba/features/meal_details/pages/meal_details.dart';
@@ -76,14 +77,7 @@ class MealInKitchenOrCategory extends StatelessWidget {
                               Row(
                                 children: [
                                   FavoriteHeartButton(meal: meal),
-                                  IconButton(
-                                    style: ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(Colors.orange.shade100),
-                                      surfaceTintColor:MaterialStatePropertyAll(Colors.orange.shade100),
-                                    ),
-                                    icon: Icon(Icons.add, color: AppColors.orangeColor,),
-                                    onPressed: (){},
-                                  )
+                                  AddInBasketButton(meal: meal),
                                 ],
                               ),
                             ],

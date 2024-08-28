@@ -11,7 +11,7 @@ import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_cate
 part 'favorites_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesStates> {
-  final bool _getFavoritesOnStart;
+
   late final FavoritesUseCase _favoritesUseCase;
   final _localFavoritesManager = LocalFavoritesManager.getInstance();
   static List<MealInCategory> localFavorites = [];
@@ -19,13 +19,12 @@ class FavoritesCubit extends Cubit<FavoritesStates> {
   static FavoritesCubit getCubit({required BuildContext context}) =>
       BlocProvider.of(context);
 
-  FavoritesCubit([this._getFavoritesOnStart = false])
+  FavoritesCubit()
       : super(FavoritesInitial()) {
     _favoritesUseCase = FavoritesUseCase(
         repo: FavoritesRepo(dataSource: FavoritesDataSource()));
-    if (_getFavoritesOnStart) {
       getAllFavorites();
-    }
+
   }
 
   void toggleFavorite({required MealInCategory meal}) {

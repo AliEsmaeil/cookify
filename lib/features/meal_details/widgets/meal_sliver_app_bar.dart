@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/core/extensions/context_extension.dart';
-import 'package:wagba/features/home/home_presentation/widgets/type_writer_effect_text.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
 import 'package:wagba/reusable_widgets/networkImage.dart';
+import 'package:wagba/core/extensions/string_manipulation.dart';
 
 class MealSliverAppBar extends StatelessWidget {
-
   final MealInCategory meal;
 
   const MealSliverAppBar({super.key, required this.meal});
@@ -17,15 +16,19 @@ class MealSliverAppBar extends StatelessWidget {
       backgroundColor: AppColors.orangeColor,
       automaticallyImplyLeading: false,
       leading: IconButton(
-        onPressed: ()=>Navigator.of(context).pop(),
+        onPressed: () => Navigator.of(context).pop(),
         icon: Icon(Icons.arrow_back_ios_new_rounded),
         style: ButtonStyle(
-          foregroundColor: MaterialStatePropertyAll(Theme.of(context).brightness == Brightness.light ? Colors.white: Colors.black),
-          backgroundColor: MaterialStatePropertyAll(Colors.grey.shade100.withOpacity(.4)),
+          foregroundColor: MaterialStatePropertyAll(
+              Theme.of(context).brightness == Brightness.light
+                  ? Colors.white
+                  : Colors.black),
+          backgroundColor:
+              MaterialStatePropertyAll(Colors.grey.shade100.withOpacity(.4)),
         ),
       ),
       stretch: true,
-      expandedHeight: context.height/2,
+      expandedHeight: context.height / 2,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         background: Hero(
@@ -36,7 +39,7 @@ class MealSliverAppBar extends StatelessWidget {
           ),
         ),
         title: Text(
-          meal.mealName ?? 'Forget to name',
+          meal.mealName?.customizeForSliverOrAppBarTitle() ?? 'backed forget naming',
           softWrap: false,
           overflow: TextOverflow.clip,
         ),

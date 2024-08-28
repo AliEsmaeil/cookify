@@ -11,4 +11,8 @@ class MealInCategoryModel extends MealInCategory{
 
   Map<String,dynamic> toJson()=>_$MealInCategoryModelToJson(this);
 
+  @override
+  // TODO: implement props
+  List<Object?> get props => [id,mealName,imageUrl];
+
 }

@@ -23,13 +23,10 @@ final class GeneralDataGetter {
       if(response.statusCode == 200){
         return response.data;
       }
-      if(response.statusCode == 404){
-        throw MealSearchHasNoResultFailure();
-      }
-      throw ServerFailure(message: response.statusMessage?? 'Something went wrong!', statusCode: (response.statusCode)??0);
+      throw ServerFailure.checkStatusCode(message: response.statusMessage?? 'Something went wrong!', statusCode: (response.statusCode)??0);
     }
     on DioException catch(e){
-      throw CustomDioFailure(message: e.message ?? "Dio Failure", statusCode: e.response?.statusCode);
+      throw ServerFailure.checkStatusCode(message: e.message ?? "Dio Failure", statusCode: e.response?.statusCode??0);
     }
     on Failure{
       rethrow;
@@ -40,3 +37,5 @@ final class GeneralDataGetter {
 
   }
 }
+
+

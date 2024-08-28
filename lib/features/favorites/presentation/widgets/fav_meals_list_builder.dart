@@ -15,56 +15,32 @@ class FavoriteMealsListBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FavoritesCubit(true),
-      child: BlocBuilder<FavoritesCubit, FavoritesStates>(
-        buildWhen: (previous, current){
-          return (current is FavoritesLoadingState || current is FavoritesFailureState || current is FavoritesLoadedState);
-        },
-        builder: (context, state) {
-          if (state is FavoritesFailureState) {
-            showToast(message: state.failure.message, color: AppColors.toastFailureColor);
-            Future.delayed(Duration(seconds: 2) , ()=>Navigator.of(context).pushReplacementNamed(HomeScreen.routeName));
-          }
-          else if (state is FavoritesLoadedState) {
-            return SliverFixedExtentList.builder(
-                key: ValueKey(state.meals.length),
-                itemCount: state.meals.length,
-                itemBuilder: (context, index) =>
-                    FavoriteItemBuilder(meal: state.meals[index]),
-                itemExtent: context.width / 1.2);
-          }
-          return LoadingFavoritesWidget();
-        },
-      ),
+
+    return BlocConsumer<FavoritesCubit, FavoritesStates>(
+      
+      listener: (context,state){
+        if (state is FavoritesFailureState) {
+          showToast(message: state.failure.message, color: AppColors.toastFailureColor);
+          Future.delayed(Duration(seconds: 2) , ()=>Navigator.of(context).pushReplacementNamed(HomeScreen.routeName));
+        }
+
+      },
+      builder: (context, state) {
+
+        if (FavoritesCubit.localFavorites.isNotEmpty) {
+          return SliverFixedExtentList.builder(
+              key: UniqueKey(),
+              itemCount: FavoritesCubit.localFavorites.length,
+              itemBuilder: (context, index) =>
+                  FavoriteItemBuilder(meal: FavoritesCubit.localFavorites[index]),
+              itemExtent: context.width / 1.2);
+        }
+        else if(state is FavoritesLoadingState){
+          return const LoadingFavoritesWidget();
+        }
+        //TODO: IMPLEMENT NO FAVS YET
+        return SliverToBoxAdapter(child: Text('YOU DON\'T HAVE ANY FAVS'));
+      },
     );
   }
 }
-
-
-/*
-BlocBuilder<FavoritesCubit, FavoritesStates>(
-        builder:(previous, current){
-          if(current is FavoritesFailureState){
-            // TODO: HANDLE FAILURE
-            return Text('Failure in favs');
-          }
-          else if (current is FavoritesLoadedState){
-
-            return ListView.separated(
-                    primary: true,
-                    itemCount: current.meals.length,
-                    itemBuilder: (context,index)=>FavoriteItemBuilder(meal:  current.meals[index]),
-                    separatorBuilder: (context,index)=> 12.verticalSpace,
-                    addAutomaticKeepAlives: true,
-                    padding: EdgeInsets.all(AppVisualProperties.defaultPadding),
-                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-
-                );
-
-          }
-          // TODO: HANDLE LOADING
-          return Text('loading ...');
-        },
-      )
- */
