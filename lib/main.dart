@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/router/router.dart';
 import 'package:wagba/core/theme/theme.dart';
 import 'package:wagba/core/utils/bloc_observer.dart';
+import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 import 'package:wagba/features/basket/presentation/manager/basket_cubit.dart';
 import 'package:wagba/features/basket/utils/local_basket_manager.dart';
 import 'package:wagba/features/favorites/presentation/manager/favorites_cubit.dart';
@@ -22,8 +23,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await LocalFavoritesManager.getInstance().initializeLocalFavorites();
-  await LocalBasketManager.getInstance().getAllMealsInBasket();
+  //await LocalFavoritesManager.getInstance().initializeLocalFavorites();
+  //await LocalBasketManager.getInstance().getAllMealsInBasket();
 
 
   Bloc.observer = MyBlocObserver();

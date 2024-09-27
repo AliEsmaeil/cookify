@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/constants/app_colors.dart';
+import 'package:wagba/core/constants/app_visual_properties.dart';
 
 final class AppTheme{
 
@@ -46,15 +47,15 @@ final class AppTheme{
 
     filledButtonTheme: FilledButtonThemeData(
       style: ButtonStyle(
-        shape:MaterialStatePropertyAll( RoundedRectangleBorder(
+        shape:WidgetStatePropertyAll( RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         )),
-        elevation: MaterialStatePropertyAll(0),
-        backgroundColor: MaterialStatePropertyAll(AppColors.orangeColor),
-        minimumSize: MaterialStatePropertyAll(Size(double.infinity, 56.h)),
-        textStyle: MaterialStatePropertyAll(TextStyle(fontSize: 20.sp, color: AppColors.whiteColor, fontWeight: FontWeight.w500 , fontFamily: 'Brandon')),
-        surfaceTintColor: MaterialStatePropertyAll(AppColors.orangeColor),
-        foregroundColor: MaterialStatePropertyAll(AppColors.whiteColor),
+        elevation: WidgetStatePropertyAll(0),
+        backgroundColor: WidgetStatePropertyAll(AppColors.orangeColor),
+        minimumSize: WidgetStatePropertyAll(Size(double.infinity, 56.h)),
+        textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 20.sp, color: AppColors.whiteColor, fontWeight: FontWeight.w500 , fontFamily: 'Brandon')),
+        surfaceTintColor: WidgetStatePropertyAll(AppColors.orangeColor),
+        foregroundColor: WidgetStatePropertyAll(AppColors.whiteColor),
         alignment: Alignment.center,
       ),
     ),
@@ -92,18 +93,18 @@ final class AppTheme{
 
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        surfaceTintColor: MaterialStatePropertyAll(Colors.transparent),
-        foregroundColor: MaterialStatePropertyAll(Colors.blue.shade600),
-        textStyle: MaterialStatePropertyAll(TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400, fontFamily: 'Brandon')),
-        backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-        elevation: MaterialStatePropertyAll(0),
-        shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r))),
-        overlayColor: MaterialStatePropertyAll(AppColors.orangeColor.withAlpha(30)),
+        surfaceTintColor: WidgetStatePropertyAll(Colors.transparent),
+        foregroundColor: WidgetStatePropertyAll(Colors.blue.shade600),
+        textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400, fontFamily: 'Brandon')),
+        backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+        elevation: WidgetStatePropertyAll(0),
+        shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r))),
+        overlayColor: WidgetStatePropertyAll(AppColors.orangeColor.withAlpha(30)),
       ),
     ),
 
     tabBarTheme: TabBarTheme(
-      overlayColor: MaterialStatePropertyAll(AppColors.orangeColor.withOpacity(.2)),
+      overlayColor: WidgetStatePropertyAll(AppColors.orangeColor.withOpacity(.2)),
       tabAlignment: TabAlignment.start,
       indicatorSize: TabBarIndicatorSize.label,
       indicator:UnderlineTabIndicator(
@@ -163,6 +164,27 @@ final class AppTheme{
         borderRadius: BorderRadius.circular(16.w),
         side: BorderSide(color: Colors.grey.shade200, width: 1),
       ),
+    ),
+    listTileTheme: ListTileThemeData(
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      style: ListTileStyle.list,
+      contentPadding: EdgeInsets.all(AppVisualProperties.defaultPadding),
+      subtitleTextStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 13,
+      ),
+      tileColor: Colors.white,
+      titleTextStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+        overflow: TextOverflow.clip,
+      ),
+      leadingAndTrailingTextStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 13,
+      ),
+      selectedColor: Colors.grey.shade300,
+
     )
 
 

@@ -5,6 +5,7 @@ import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_cate
 
 abstract class BaseFavoritesDataSource{
   final db = FireStoreConstants.db;
+  final auth = FireStoreConstants.auth;
 
   Future<Either<Failure, bool>> addFavorite({required MealInCategory meal});
   Future<Either<Failure, bool>> removeFavorite({required String mealId});

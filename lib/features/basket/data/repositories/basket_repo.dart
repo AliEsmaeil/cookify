@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:wagba/core/failures/base_failure.dart';
 import 'package:wagba/features/basket/data/data_sources/base_basket_data_source.dart';
+import 'package:wagba/features/basket/domain/entities/meal_in_basket.dart';
 import 'package:wagba/features/basket/domain/repositories/base_basket_repo.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
 
@@ -12,7 +13,7 @@ final class BasketRepo extends BaseBasketRepo{
 
 
   @override
-  Future<Either<Failure, bool>> addInBasket({required MealInCategory meal})async{
+  Future<Either<Failure, bool>> addInBasket({required MealInBasket meal})async{
     return _dataSource.addInBasket(meal: meal);
   }
 
@@ -23,7 +24,7 @@ final class BasketRepo extends BaseBasketRepo{
   }
 
   @override
-  Future<Either<Failure, List<MealInCategory>>> getAllBasket(){
+  Future<Either<Failure, List<MealInBasket>>> getAllBasket(){
     return _dataSource.getAllBasket();
   }
 }

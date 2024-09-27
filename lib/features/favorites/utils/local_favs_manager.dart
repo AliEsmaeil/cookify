@@ -3,6 +3,7 @@ import 'dart:isolate';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:wagba/core/constants/firebase_constants.dart';
 import 'package:wagba/core/failures/base_failure.dart';
 import 'package:wagba/features/favorites/data/data_sources/remote_fav_data_source.dart';
 import 'package:wagba/features/favorites/data/repositories/fav_repo.dart';
@@ -23,6 +24,11 @@ class LocalFavoritesManager {
   }
 
   Future<void> initializeLocalFavorites() async {
+
+    if(FireStoreConstants.auth.currentUser == null){
+      return ;
+    }
+
     RootIsolateToken? rootIsolateToken = RootIsolateToken.instance;
 
     final ReceivePort receivePort = ReceivePort();
@@ -44,7 +50,7 @@ class LocalFavoritesManager {
     }
 
     // deserialize the returned List.
-
+   print('.......................${await receivePort.first}');
     favMealIds = (await receivePort.first as List<Map<String, dynamic>>)
         .map((jsonMeal) => MealInCategoryModel.fromJson(jsonMeal))
         .map((model) => model.id ?? '50')

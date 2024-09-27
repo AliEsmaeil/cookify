@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "766049360094-da3h5iksu8l5av5j02qh0ks7qpkjuov4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wagba",
+            "certificate_hash": "66c77e03389d913dd337622da73fb7de7dbc3394"
+          }
+        },
+        {
           "client_id": "766049360094-l4dge8hmkf6dkhaan3ascb2tqmdh194s.apps.googleusercontent.com",
           "client_type": 3
         }

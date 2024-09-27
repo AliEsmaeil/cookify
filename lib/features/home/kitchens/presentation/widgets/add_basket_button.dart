@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wagba/core/constants/app_colors.dart';
+import 'package:wagba/features/basket/data/models/meal_in_basket_model.dart';
+import 'package:wagba/features/basket/domain/entities/meal_in_basket.dart';
 import 'package:wagba/features/basket/presentation/manager/basket_cubit.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
 
@@ -35,7 +37,7 @@ class _AddInBasketButtonState extends State<AddInBasketButton>
     return BlocBuilder<BasketCubit, BasketStates>(
        builder: (context, state) {
           var cubit = BasketCubit.getCubit(context);
-          bool isInBasket =cubit.isInBasket(meal: widget.meal);
+          bool isInBasket =cubit.isInBasket(meal: MealInBasketModel(widget.meal.mealName, widget.meal.imageUrl, widget.meal.id, 1));
 
             return ScaleTransition(
               scale: Tween<double>(begin: .5, end: 1).animate(CurvedAnimation(
@@ -44,8 +46,8 @@ class _AddInBasketButtonState extends State<AddInBasketButton>
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(isInBasket? Colors.transparent: Colors.orange.shade100),
-                  foregroundColor: MaterialStatePropertyAll(isInBasket? AppColors.orangeColor: Colors.orange),
+                  backgroundColor: WidgetStatePropertyAll(isInBasket? Colors.transparent: Colors.orange.shade100),
+                  foregroundColor: WidgetStatePropertyAll(isInBasket? AppColors.orangeColor: Colors.orange),
                 ),
                 icon: Icon(
                   isInBasket ? Icons.shopping_basket_rounded : Icons.add,
@@ -55,7 +57,7 @@ class _AddInBasketButtonState extends State<AddInBasketButton>
                       .reverse()
                       .then((value) => animationController.forward());
                   Timer(const Duration(milliseconds: 400),
-                      () => cubit.toggleMealInBasket(meal: widget.meal));
+                      () => cubit.toggleMealInBasket(meal: MealInBasketModel(widget.meal.mealName, widget.meal.imageUrl, widget.meal.id, 1)));
                 },
               ),
             );

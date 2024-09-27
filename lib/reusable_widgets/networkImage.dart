@@ -24,7 +24,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
       errorWidget: (context,string,handler)=>const Center(child: Icon(Icons.error)),
       placeholder: (context,image)=>const LoadingContainer(),
       fadeInCurve: Curves.easeInOut,
-      fadeInDuration: const Duration(seconds: 2),
+      fadeInDuration: const Duration(milliseconds: 1500),
     );
 
   }
