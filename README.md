@@ -177,7 +177,7 @@ you could see screenshots singularly, just go to [screenshots](screenshots) dir.
 Firstly, You should know this app interacts with an API in which you should have your own `API KEY`, to get one just register on [TheMealDB](https://www.themealdb.com/api.php). once you got a key you can follow the following steps:
 Note: you can use `apiKey = 1` for testing purposes
 1. ```
-   git clone https://github.com/AliEsmaeil/wagba.git 
+   git clone https://github.com/AliEsmaeil/cookify.git 
    ```
 2. in your project level `wagba` or `cookify`, create a `.env` file and store your `API Key` there.
    this is related to sensitive environment variables hiding (You key shouldn't be exposed in public repos)
