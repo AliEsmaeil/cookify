@@ -6,13 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/router/router.dart';
 import 'package:wagba/core/theme/theme.dart';
 import 'package:wagba/core/utils/bloc_observer.dart';
-import 'package:wagba/features/auth/login/presentation/pages/auth_screen.dart';
 import 'package:wagba/features/basket/presentation/manager/basket_cubit.dart';
-import 'package:wagba/features/basket/utils/local_basket_manager.dart';
 import 'package:wagba/features/favorites/presentation/manager/favorites_cubit.dart';
-import 'package:wagba/features/favorites/utils/local_favs_manager.dart';
 import 'package:wagba/features/home/home_presentation/manager/home_cubit.dart';
-import 'package:wagba/features/home/home_presentation/pages/home_screen.dart';
+import 'package:wagba/features/onBoarding/on_boarding.dart';
 
 import 'firebase_options.dart';
 
@@ -20,6 +17,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
+    name: 'Coockify',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -58,9 +56,9 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             themeAnimationDuration: const Duration(seconds: 2),
             themeAnimationCurve: Curves.decelerate,
-            title: 'Wagba',
+            title: 'Coockify',
             debugShowCheckedModeBanner: false,
-            initialRoute: HomeScreen.routeName,
+            initialRoute: OnBoardingScreen.routeName,
             onGenerateRoute: MyRouter.onGenerateRoute,
             theme: AppTheme.lightTheme,
           ),

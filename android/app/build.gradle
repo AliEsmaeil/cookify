@@ -59,13 +59,13 @@ android {
         release {
             keyAlias 'wagbaKey'
             keyPassword 'AliEsmaeil012'
-            storeFile file('wagbaKey.jks')
+            storeFile file('wagba_release.keystore')
             storePassword 'AliEsmaeil012'
         }
         debug {
             keyAlias 'wagbaKey'
             keyPassword 'AliEsmaeil012'
-            storeFile file('wagbaKey.jks')
+            storeFile file('wagba_release.keystore')
             storePassword 'AliEsmaeil012'
         }
 

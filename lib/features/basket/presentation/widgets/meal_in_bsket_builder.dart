@@ -15,14 +15,16 @@ class MealInBasketBuilder extends StatelessWidget {
       leading: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         child: CustomCachedNetworkImage(
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
           imgUrl: meal.imageUrl,
         ),
       ),
       minTileHeight: 100.h,
       titleAlignment: ListTileTitleAlignment.top,
       horizontalTitleGap: 20,
-      minLeadingWidth: context.width/5,
+      style: ListTileStyle.list,
+      splashColor: Colors.orangeAccent,
+      minLeadingWidth: context.width/10,
       title: Text(meal.mealName?? 'Backend Prop', maxLines: 1,),
       subtitle:  Text('${meal.numberOfOrderedMeals} ${meal.numberOfOrderedMeals > 1 ? 'Packs' : 'Pack'}'),
       trailing: Text('\$ ${meal.numberOfOrderedMeals * (int.parse(meal.id?? '50') % 100) }'),

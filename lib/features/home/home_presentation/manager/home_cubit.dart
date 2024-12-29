@@ -13,7 +13,7 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeStates>{
 
   int tabIndex = 0;
-  static const List<Widget> tabs =  [HomeTab(), BasketTab(), FavoritesTab(), SettingsTab()];
+  static const List<Widget> tabs =  [HomeTab(), BasketTab(), FavoritesTab()];
 
    HomeCubit() : super(HomeInitial());
 

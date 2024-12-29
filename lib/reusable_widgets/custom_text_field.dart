@@ -21,9 +21,11 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final Color? fillColor;
   final TextStyle? hintTextStyle;
+  final bool readOnly;
 
   const CustomTextField(
       {super.key,
+        this.readOnly = false,
         this.isForTabs = false,
       this.suffixIconPath,
         this.onTap,
@@ -44,6 +46,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: readOnly,
       textCapitalization: capitalization,
       onChanged: onChanged,
       onTap: onTap,

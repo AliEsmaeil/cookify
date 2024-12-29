@@ -45,14 +45,14 @@ class BottomNavBar extends StatelessWidget {
               ? ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn)
               : null,
         ),
-        SvgPicture.asset(
-          AppAssets.gearNav,
-          width: 25.w,
-          height: 25.w,
-          colorFilter: chosenIndex == 3
-              ? ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn)
-              : null,
-        ),
+        // SvgPicture.asset(
+        //   AppAssets.gearNav,
+        //   width: 25.w,
+        //   height: 25.w,
+        //   colorFilter: chosenIndex == 3
+        //       ? ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn)
+        //       : null,
+        // ),
       ],
     );
   }

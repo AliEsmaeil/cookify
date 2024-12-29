@@ -19,7 +19,10 @@ class BasketTab extends StatelessWidget {
       primary: true,
       slivers: [
         TabSliverAppBar(tabTitle: 'Basket'),
-        TabSliverSearchField(),
+        TabSliverSearchField(
+          hintText: 'Search Meals in Basket',
+          suggestionsBuilder: BasketCubit.basketSuggestionBuilder,
+        ),
         BasketMealsBuilder(),
       ],
     );

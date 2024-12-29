@@ -49,7 +49,7 @@ final class MealSearchDataSource extends BaseMealSearchDataSource{
   Future<Either<Failure, List<Meal>>> searchMealByName({required String mealName})async{
     try{
       var data = await GeneralDataGetter.getDataFromServer(endPoint: ApiConstants.searchByNameEndPoint, queryParams: {'s' : mealName});
-      return Right(data['meals'].map((meal)=>MealModel.fromJson(meal)).toList());
+      return Right(List<Meal>.from((data['meals'] as List).map((m)=>MealModel.fromJson(m))));
     }
     on Failure catch(failure){
       return Left(failure);
@@ -61,7 +61,7 @@ final class MealSearchDataSource extends BaseMealSearchDataSource{
     
     try{
       var data = await GeneralDataGetter.getDataFromServer(endPoint: ApiConstants.mealsInCategoryEndpoint, queryParams: {'i' : ingredient});
-      return Right(data['meals'].map((meal)=>MealInCategoryModel.fromJson(meal)).toList());
+      return Right(List<MealInCategoryModel>.from((data['meals'] as List).map((meal)=>MealInCategoryModel.fromJson(meal))));
     }
     on Failure catch (failure){
       return Left(failure);

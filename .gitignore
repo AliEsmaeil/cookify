@@ -11,6 +11,9 @@
 .svn/
 migrate_working_dir/
 lib/core/config/config.g.dart
+android/app/google-services.json
+android/wagba_release.keystore
+ios/Runner/GoogleService-Info.plist
 
 # IntelliJ related
 *.iml

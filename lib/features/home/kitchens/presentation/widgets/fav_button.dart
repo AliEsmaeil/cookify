@@ -39,7 +39,7 @@ class _FavoriteHeartButtonState extends State<FavoriteHeartButton>
       builder: (BuildContext context, FavoritesStates state) {
 
         var cubit = FavoritesCubit.getCubit(context: context);
-        bool isFav = cubit.isInFavorites(mealId: widget.meal.id ?? '50');
+        bool isFav = cubit.isInFavorites(meal: widget.meal);
 
         return ScaleTransition(
           scale: Tween<double>(begin: 0.7, end: 1).animate(

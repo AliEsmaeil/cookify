@@ -92,7 +92,7 @@ class AuthScreenLoginPart extends StatelessWidget {
                       onPressed: () {
                        validateAndCall(context: context);
                       },
-                      child: Text('Login'),
+                      child: state is LoginScreenLoadingState? CircularProgressIndicator(): Text('Login'),
                     ),
                     AuthRedirection(
                       redirectText: 'Don\'t Have an Account',

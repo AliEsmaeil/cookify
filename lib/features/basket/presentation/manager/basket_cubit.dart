@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -7,37 +8,23 @@ import 'package:wagba/features/basket/data/data_sources/remote_basket_data_sourc
 import 'package:wagba/features/basket/data/repositories/basket_repo.dart';
 import 'package:wagba/features/basket/domain/entities/meal_in_basket.dart';
 import 'package:wagba/features/basket/domain/use_cases/basket_use_case.dart';
+import 'package:wagba/features/basket/presentation/widgets/meal_in_bsket_builder.dart';
 import 'package:wagba/features/home/meal_categories/domain/entities/meal_in_category_or_kitchen.dart';
 
 part 'basket_state.dart';
 
 class BasketCubit extends Cubit<BasketStates> {
 
-  // manages the meals in the basket locally
-  //static final LocalBasketManager localBasketManager = LocalBasketManager.getInstance();
  static List<MealInBasket> mealsInBasket = <MealInBasket>[];
 
   late final BasketUseCase _basketUseCase;
 
   BasketCubit() : super(BasketInitial()){
-    //initializeLocalBasketManager();
+
     _basketUseCase = BasketUseCase(repo: BasketRepo(dataSource: RemoteBasketDataSource()));
     getAllMealsInBasket();
   }
 
-  // void initializeLocalBasketManager()async{
-  //   try{
-  //     if(localBasketManager.mealsInBasket.isEmpty){
-  //       await localBasketManager.getAllMealsInBasket();
-  //     }
-  //   }
-  //   on Failure catch (failure){
-  //     emit(BasketMealsFailureState(failure : failure));
-  //   }
-  //   catch(e){
-  //     emit(BasketMealsFailureState(failure : UnknownFailure(message: 'Something went wrong while getting your basket!')));
-  //   }
-  // }
 
   List<MealInBasket> get getMealsInBasket=>mealsInBasket;
 
@@ -114,4 +101,15 @@ class BasketCubit extends Cubit<BasketStates> {
     }
     return price;
   }
+
+ static FutureOr<Iterable<Widget>> basketSuggestionBuilder(BuildContext context, SearchController controller){
+    String searchText = controller.text.toLowerCase();
+    List<Widget> matchSearch = [];
+    for(var meal in mealsInBasket){
+      if(meal.mealName!.toLowerCase().contains(searchText)){
+        matchSearch.add(MealInBasketBuilder(meal: meal));
+      }
+    }
+    return matchSearch;
+ }
 }

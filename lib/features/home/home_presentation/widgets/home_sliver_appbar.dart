@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wagba/core/constants/app_assets.dart';
 import 'package:wagba/core/constants/app_colors.dart';
 import 'package:wagba/core/extensions/context_extension.dart';
+import 'package:wagba/features/home/home_presentation/widgets/custom_search_delegate.dart';
 import 'package:wagba/features/home/home_presentation/widgets/searhc_segmented_button.dart';
 import 'package:wagba/features/home/home_presentation/widgets/type_writer_effect_text.dart';
 import 'package:wagba/reusable_widgets/custom_text_field.dart';
@@ -50,7 +51,7 @@ class _HomeSliverAppBarState extends State<HomeSliverAppBar> {
 
       ],),
       scrolledUnderElevation: 0,
-
+      backgroundColor: Colors.white,
       expandedHeight: showSearchBySegment ? context.height /3 :  220.h,
       flexibleSpace: FlexibleSpaceBar(
         //expandedTitleScale: 1,
@@ -80,6 +81,7 @@ class _HomeSliverAppBarState extends State<HomeSliverAppBar> {
                 children: [
                   Expanded(
                     child: CustomTextField(
+                      readOnly: true,
                       controller: mealSearchController,
                       //TODO: depends on search type (name or id)
                       textInputType: TextInputType.name,
@@ -88,13 +90,9 @@ class _HomeSliverAppBarState extends State<HomeSliverAppBar> {
                       hintText: 'Search for meals',
                       fillColor: Color(0xFFF3F4F9),
                       onTap: (){
-                        //TODO: show search
+                        showSearch(context: context, delegate: CustomSearchDelegate(searchBy: SearchSegmentedButtonState.searchBy()));
                       },
-                      onChanged: (s){
-                        // get matched meals from api
-                      },
-                      onSubmitted: (s){},
-                      hintTextStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      hintTextStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Color(0xFF86869E),
                       ),
                     ),

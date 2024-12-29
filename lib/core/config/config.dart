@@ -2,7 +2,7 @@ import 'package:envied/envied.dart';
 
 part 'config.g.dart';
 
-@Envied()
+@Envied(path : '.env')
 class Config{
 
   @EnviedField(varName: 'APIKEY' , obfuscate: true)

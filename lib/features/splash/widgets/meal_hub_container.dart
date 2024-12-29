@@ -17,7 +17,7 @@ class MealHubContainer extends StatelessWidget {
       height: 40.h,
       child: Center(
         child: Text(
-          'Meal Hub',
+          'Cookify',
           style: TextStyle(
             fontWeight: FontWeight.w400,
             fontStyle: FontStyle.italic,

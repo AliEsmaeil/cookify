@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wagba/features/favorites/presentation/manager/favorites_cubit.dart';
 import 'package:wagba/features/favorites/presentation/widgets/fav_meals_list_builder.dart';
 import 'package:wagba/reusable_widgets/tab_sliver_app_bar.dart';
 import 'package:wagba/reusable_widgets/tab_sliver_search_field.dart';
@@ -13,7 +14,10 @@ class FavoritesTab extends StatelessWidget {
       primary: true,
       slivers: [
         TabSliverAppBar(tabTitle: 'Favorites'),
-        TabSliverSearchField(),
+        TabSliverSearchField(
+          hintText: 'Search Meals in Favorites',
+          suggestionsBuilder: FavoritesCubit.favoritesSuggestionBuilder,
+        ),
         FavoriteMealsListBuilder(),
       ],
     );

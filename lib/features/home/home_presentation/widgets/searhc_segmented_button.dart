@@ -7,14 +7,15 @@ class SearchSegmentedButton extends StatefulWidget {
   const SearchSegmentedButton({super.key});
 
   @override
-  State<SearchSegmentedButton> createState() => _SearchSegmentedButtonState();
+  State<SearchSegmentedButton> createState() => SearchSegmentedButtonState();
+
 }
 
 
-class _SearchSegmentedButtonState extends State<SearchSegmentedButton> {
+class SearchSegmentedButtonState extends State<SearchSegmentedButton> {
 
-  MealSearchBy currentSelection = MealSearchBy.name;
-
+  static MealSearchBy currentSelection = MealSearchBy.name;
+  static String searchBy()=>currentSelection.name;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -42,10 +43,7 @@ class _SearchSegmentedButtonState extends State<SearchSegmentedButton> {
               textStyle: Theme.of(context).textTheme.bodyMedium,
             ),
             segments: const [
-              ButtonSegment<MealSearchBy>(
-                label:  Text('ID'),
-                value: MealSearchBy.id,
-              ),
+
               ButtonSegment<MealSearchBy>(
                 label:  Text('Name'),
                 value: MealSearchBy.name,
