@@ -1,4 +1,7 @@
-![app-icon.png](assets%2Fimages%2Fapp-icon.png)
+<p align="center">
+  <img src="assets/images/app-icon.png" alt="App Icon" />
+</p>
+
 # Cookify
 Cookify is a mobile application that enable users to explore healthful meals and how they are cooked 
 
@@ -24,7 +27,6 @@ Cookify app provides a comprehensive user experience with the following features
 - **Advanced Meal Search**: meals are searchable through their names or ingredients.
 
 - **Meal Categorization**: a lot of meal categories containing meals suitable for vegetarian and carnivore people, moreover the kitchens around the world introduces the most famous meals within.
-- 
 
 ### Technologies used
 
@@ -172,7 +174,7 @@ you could see screenshots singularly, just go to [screenshots](screenshots) dir.
 
 ### How to install
 
-Firstly, You should know this app interacts with an API in which you should have your own `API KEY`, to get one just register on [TheMeakDB](https://www.themealdb.com/api.php). once you got a key you can follow the following steps:
+Firstly, You should know this app interacts with an API in which you should have your own `API KEY`, to get one just register on [TheMealDB](https://www.themealdb.com/api.php). once you got a key you can follow the following steps:
 Note: you can use `apiKey = 1` for testing purposes
 1. ```
    git clone https://github.com/AliEsmaeil/wagba.git 
@@ -202,4 +204,4 @@ While this repository is licensed under the Apache License 2.0, we would like to
 
 - Respect the License: Ensure that any use of the code complies with the terms of the Apache License 2.0. The license permits use, modification, and distribution, but does not allow for code extraction for patent-related claims.
 
-Last, but not least this repo is welcoming contribution so, feel free to open a pull request.
+Last but not least, this repo is welcoming contribution so, feel free to open a pull request.
